@@ -3,6 +3,15 @@
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
+    "repositories": {
+        "laravel-toast-me": {
+            "type": "path",
+            "url": "packages/PacificNorthWares/laravel-toast-me",
+            "options": {
+                "symlink": true
+            }
+        }
+    },
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
@@ -10,9 +19,11 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "pacificnorthwares/laravel-toast-me": "@dev"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.4",

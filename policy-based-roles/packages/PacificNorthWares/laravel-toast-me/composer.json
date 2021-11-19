@@ -1,0 +1,23 @@
+{
+    "name": "pacificnorthwares/laravel-toast-me",
+    "description": "Laravel 8 & Tailwind CSS Toast Notification Package",
+    "autoload": {
+        "psr-4": {
+            "Pacificnorthwares\\LaravelToastMe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eric Craigen",
+            "email": "eric.craigen.cd@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pacificnorthwares\\LaravelToastMe\\LaravelToastMeServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+Route::middleware('auth')->group( function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })
+    ->name('dashboard');
+
+    Route::get('/dashboard/all-users', [
+        UsersController::class, 'index'
+    ])
+    ->name('all-users')
+    ->can('viewAny', 'App\\Models\User');
+
+    Route::get('/dashboard/create-user', [
+        UsersController::class, 'create'
+    ])
+    ->name('create-user')
+    ->can('create', 'App\\Models\User');
+
+    // Route::get('/dashboard/user/{user}', [
+    //     UsersController::class, 'show'
+    // ])
+    // ->name('user')
+    // ->can('view', Auth::user(), 'App\\Models\User');
+});
 
 require __DIR__.'/auth.php';

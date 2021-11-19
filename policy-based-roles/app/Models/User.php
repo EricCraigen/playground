@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'roles',
         'password',
     ];
 
@@ -41,4 +42,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // public function role_check($role_check)
+    // {
+    //     $roles = explode(',', $this->roles);
+    //     return $roles[array_search($role_check, $roles)];
+    // }
+
+
+    public function roles()
+    {
+        $roles = explode(',', $this->roles);
+        return $roles;
+    }
 }
